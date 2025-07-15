@@ -1,0 +1,28 @@
+<section [class.dark-mode]="darkMode" class="curso-container">
+  <div class="toggle-container">
+    <label class="switch">
+      <input type="checkbox" (change)="toggleDarkMode()" />
+      <span class="slider"></span>
+    </label>
+    <span class="toggle-label">Modo Oscuro</span>
+  </div>
+
+  <div class="curso-grid">
+    <div
+      class="card"
+      *ngFor="let curso of cursos"
+      [ngClass]="getCursoClass(curso.nombre)"
+    >
+      <img [src]="curso.imagen" alt="{{ curso.nombre }}" class="curso-img" />
+      <h3 class="card__title">{{ curso.nombre }}</h3>
+      <p class="nivel">{{ curso.nivel }}</p>
+      <p class="card__content">{{ curso.descripcion }}</p>
+      <p class="precio">{{ curso.precio }}</p>
+      <button class="card__button" (click)="verDetalleCurso(curso.id)">
+        Ver Tabla de Contenido
+      </button>
+    </div>
+  </div>
+</section>
+
+
